@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>移动云VR演示</title>
+  <link href="./dist/video-js.min.css" rel="stylesheet">
+  <link href="./dist/videojs-vr.css" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/layui/css/layui.css">
+  <link rel="stylesheet" href="./dist/cmcc.css">
+</head>
+<body>
+<div class="layui-fluid">
+  <div class="layui-row head">
+    <div class="layui-col-xs6 layui-col-md6">
+      <a class="cmcc-logo" href="#"></a>
+      <a href="#"></a>
+    </div>
+    <div class="layui-col-xs6 layui-col-md6 info">
+      <!-- <a href="#">登陆</a><a href="#">注册</a> -->
+    </div>
+  </div>
+  <div class="layui-row">
+    <div class="layui-col-xs12 layui-col-md9 main-l">
+      <div class="video" id="video">
+      </div>
+      <div class="video-thumbnail">
+        <div class="video-title" id="video-title"></div>
+      </div>
+    </div>
+    <div class="layui-col-xs12 layui-col-md3 main-r">
+      <div class="video-list-title">其他作品</div>
+      <ul class="video-list" id="video-list">
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="./dist/video.min.js"></script>
+<script src="./dist/videojs-vr.min.js"></script>
+<script src="./dist/jquery-3.5.1.min.js"></script>
+<script>
+
+  let videoObj = {"success":true,"code":2000,"msg":"获取数据成功",
+    "datas":[
+      {"title":"《温州全景城市新名片》中共浙江省一大会址(旧址）", "image":"./dist/img/list_6.jpg", "url":"http://bjwshls.live.migucloud.com/live/PBOUBJ75_C0/playlist.m3u8"},
+    ]};
+
+  let videoData = videoObj.datas;
+  let html ="";
+  let firstData ="";
+  // 获取数据
+  for (let j = 0; j <videoData.length ; j++) {
+    if (j === 0) {
+      firstData= videoData[j];
+    }
+    let url = videoData[j].url;
+    if (!videoData[j].url) {
+      url = "javascript:;";
+    }
+    html+='<li><a class="videoPlay" href="javascript:;"><img src="'+videoData[j].image+'"/><i>'+videoData[j].title+'</i></a></li>';
+    $("#video-list").html(html);
+  }
+
+  // 获取屏幕分辨率
+  let w = document.body.clientWidth;
+  let h = document.body.clientHeight;
+  if (w > 1920) {
+    $(".main-l").children('.video').css({height:h*(0.8)+"px"});
+    $(".main-l").children('.video-thumbnail').css({height:h*(0.2)+"px"});
+    $(".video-list li").css({height:h*(0.15)+"px"});
+  }
+
+  // 初始化播放器
+  let video = '<video id="videojs-vr-player" class="video-js vjs-default-skin" controls preload="auto" poster="'+firstData.image+'">' +
+    '          <source src="'+firstData.url+'" type="application/x-mpegurl">' +
+    '        </video>';
+  $("#video").html(video);
+  $("#video-title").html(firstData.title);
+  
+  (function(window, videojs) {
+    let player = window.player = videojs('videojs-vr-player');
+    player.mediainfo = player.mediainfo || {};
+    player.mediainfo.projection = '360';
+
+    // AUTO is the default and looks at mediainfo
+    var vr = window.vr = player.vr({projection: 'AUTO', forceCardboard: false});
+  }(window, window.videojs));
+
+</script>
+
+</body>
+</html>

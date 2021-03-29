@@ -1,0 +1,104 @@
+
+body{
+  background-color: #212121;
+  font-size: 0.16rem;
+  color: #fff;
+}
+.head{
+  height: 50px;
+  line-height: 50px;
+}
+.cmcc-logo{
+  display: inline-block;
+  width: 100px;
+  height: 34px;
+  background: url("img/logo.png") no-repeat center;
+  background-size: 100%;
+  margin-top: 8px;
+}
+.info{
+  text-align: right;
+}
+.info a{
+  color: #fff;
+}
+.info a:last-child{
+  padding-left: 15px;
+}
+.video{
+  height: 600px;
+  width: 100%;
+}
+.video-js{
+  width: inherit;
+  height: inherit;
+}
+.video video{
+  width: inherit;
+  height: inherit;
+}
+.video-thumbnail{
+  background: #242740;
+  padding-bottom: 20px;
+}
+.video-title{
+  font-size: 22px;
+  padding: 15px;
+}
+.video-thumbnail-list{
+  background: #242740;
+}
+.video-thumbnail-list li{
+  height: 180px;
+  margin-bottom: 15px;
+}
+.video-thumbnail-list li img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-left: 15px;
+}
+.video-list-title{
+  font-size: 20px;
+  padding-left: 15px;
+}
+.video-list{
+  padding: 15px;
+}
+.video-list li{
+  height: 100px;
+  margin-bottom: 15px;
+}
+.video-list li img,.video-list li i{
+  display: block;
+  height: inherit;
+  float: left;
+  width: 50%;
+}
+.video-list li a {
+  display: block;
+  height: inherit;
+  color: #fff;
+}
+.video-list li i {
+  font-style: normal;
+  font-size: 16px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+.video-js .vjs-big-play-button{
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .video-list-title{
+    margin-top: 15px;
+  }
+  .video-thumbnail-list li img{
+    margin-left:0;
+  }
+}
