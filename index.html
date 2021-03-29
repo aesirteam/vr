@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>移动云VR演示</title>
   <link href="./dist/video-js.min.css" rel="stylesheet">
   <link href="./dist/videojs-vr.css" rel="stylesheet">
@@ -17,7 +18,6 @@
       <a href="#"></a>
     </div>
     <div class="layui-col-xs6 layui-col-md6 info">
-      <!-- <a href="#">登陆</a><a href="#">注册</a> -->
     </div>
   </div>
   <div class="layui-row">
@@ -29,7 +29,6 @@
       </div>
     </div>
     <div class="layui-col-xs12 layui-col-md3 main-r">
-      <div class="video-list-title">其他作品</div>
       <ul class="video-list" id="video-list">
       </ul>
     </div>
@@ -43,7 +42,7 @@
 
   let videoObj = {"success":true,"code":2000,"msg":"获取数据成功",
     "datas":[
-      {"title":"《温州全景城市新名片》中共浙江省一大会址(旧址）", "image":"./dist/img/list_6.jpg", "url":"https://bjwshls.live.migucloud.com/live/PBOUBJ75_C0/playlist.m3u8"},
+      {"title":"《温州全景城市新名片》中共浙江省一大会址(旧址）", "image":"./dist/img/list_6.jpg", "url":"http://bjwshls.live.migucloud.com/live/PBOUBJ75_C0/playlist.m3u8"},
     ]};
 
   let videoData = videoObj.datas;
